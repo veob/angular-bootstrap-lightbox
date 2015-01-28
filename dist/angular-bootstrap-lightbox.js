@@ -1,13 +1,11 @@
 angular.module('bootstrapLightbox', [
-  'ngTouch',
-  'ui.bootstrap',
-  'chieffancypants.loadingBar',
+  'ui.bootstrap'
 ]);
 angular.module('bootstrapLightbox').run(['$templateCache', function($templateCache) {
   'use strict';
 
   $templateCache.put('lightbox.html',
-    "<div class=modal-body ng-swipe-left=Lightbox.nextImage() ng-swipe-right=Lightbox.prevImage()><div class=lightbox-nav><button class=close aria-hidden=true ng-click=$dismiss()>×</button><div class=btn-group><a class=\"btn btn-xs btn-default\" ng-click=Lightbox.prevImage()>‹ Previous</a> <a ng-href={{Lightbox.imageUrl}} target=_blank class=\"btn btn-xs btn-default\" title=\"Open in new tab\">Open image in new tab</a> <a class=\"btn btn-xs btn-default\" ng-click=Lightbox.nextImage()>Next ›</a></div></div><div class=lightbox-image-container><div class=lightbox-image-caption><span>{{Lightbox.imageCaption}}</span></div><img lightbox-src={{Lightbox.imageUrl}} alt=\"\"></div></div>"
+    "<div class=modal-body><div class=lightbox-nav><button class=close aria-hidden=true ng-click=$dismiss()>×</button><div class=btn-group><a class=\"btn btn-xs btn-default\" ng-click=Lightbox.prevImage()>‹ Previous</a> <a ng-href={{Lightbox.imageUrl}} target=_blank class=\"btn btn-xs btn-default\" title=\"Open in new tab\">Open image in new tab</a> <a class=\"btn btn-xs btn-default\" ng-click=Lightbox.nextImage()>Next ›</a></div></div><div class=lightbox-image-container><div class=lightbox-image-caption><span>{{Lightbox.imageCaption}}</span></div><img lightbox-src={{Lightbox.imageUrl}} alt=\"\"></div></div>"
   );
 
 }]);
@@ -142,8 +140,8 @@ angular.module('bootstrapLightbox').provider('Lightbox', function () {
     };
   };
 
-  this.$get = ['$document', '$modal', '$timeout', 'cfpLoadingBar',
-      'ImageLoader', function ($document, $modal, $timeout, cfpLoadingBar,
+  this.$get = ['$document', '$modal', '$timeout',
+      'ImageLoader', function ($document, $modal, $timeout,
       ImageLoader) {
     // array of all images to be shown in the lightbox (not Image objects)
     var images = [];
@@ -221,9 +219,6 @@ angular.module('bootstrapLightbox').provider('Lightbox', function () {
         Lightbox.imageCaption = null;
 
         Lightbox.keyboardNavEnabled = false;
-
-        // complete any lingering loading bar progress
-        cfpLoadingBar.complete();
       });
     };
 
@@ -238,13 +233,10 @@ angular.module('bootstrapLightbox').provider('Lightbox', function () {
         throw 'Invalid image.';
       }
 
-      cfpLoadingBar.start();
 
       var success = function () {
         index = newIndex;
         Lightbox.image = images[index];
-
-        cfpLoadingBar.complete();
       };
 
       var imageUrl = Lightbox.getImageUrl(images[newIndex]);

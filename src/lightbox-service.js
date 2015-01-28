@@ -94,8 +94,8 @@ angular.module('bootstrapLightbox').provider('Lightbox', function () {
     };
   };
 
-  this.$get = ['$document', '$modal', '$timeout', 'cfpLoadingBar',
-      'ImageLoader', function ($document, $modal, $timeout, cfpLoadingBar,
+  this.$get = ['$document', '$modal', '$timeout',
+      'ImageLoader', function ($document, $modal, $timeout,
       ImageLoader) {
     // array of all images to be shown in the lightbox (not Image objects)
     var images = [];
@@ -173,9 +173,6 @@ angular.module('bootstrapLightbox').provider('Lightbox', function () {
         Lightbox.imageCaption = null;
 
         Lightbox.keyboardNavEnabled = false;
-
-        // complete any lingering loading bar progress
-        cfpLoadingBar.complete();
       });
     };
 
@@ -190,13 +187,10 @@ angular.module('bootstrapLightbox').provider('Lightbox', function () {
         throw 'Invalid image.';
       }
 
-      cfpLoadingBar.start();
 
       var success = function () {
         index = newIndex;
         Lightbox.image = images[index];
-
-        cfpLoadingBar.complete();
       };
 
       var imageUrl = Lightbox.getImageUrl(images[newIndex]);
