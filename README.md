@@ -6,7 +6,7 @@
 
 via bower:
 
-`bower install angular-bootstrap-lightbox --save`
+`bower install angular-bootstrap-lightbox-no-extra --save`
 ## Demos
 
 [Demos](http://compact.github.io/angular-bootstrap-lightbox/)
