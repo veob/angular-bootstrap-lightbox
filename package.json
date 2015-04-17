@@ -1,9 +1,9 @@
 {
   "name": "angular-bootstrap-lightbox-no-extra",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "repository": {
     "type": "git",
-    "url": "git://github.com/veob/angular-bootstrap-lightbox.git"
+    "url": "git://github.com/veob/angular-bootstrap-lightbox-no-extra.git"
   },
   "dependencies": {},
   "devDependencies": {

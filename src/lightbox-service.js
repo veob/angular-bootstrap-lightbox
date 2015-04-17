@@ -208,7 +208,10 @@ angular.module('bootstrapLightbox').provider('Lightbox', function () {
         success();
 
         // blank image
-        Lightbox.imageUrl = '//:0';
+
+        // I commented this line because of flickering - github.com/veob
+        // Lightbox.imageUrl = '//:0';
+
         // use the caption to show the user an error
         Lightbox.imageCaption = 'Failed to load image';
       });

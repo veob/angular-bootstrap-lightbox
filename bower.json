@@ -1,9 +1,9 @@
 {
   "name": "angular-bootstrap-lightbox-no-extra",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "main": [
-    "dist/angular-bootstrap-lightbox.js",
-    "dist/angular-bootstrap-lightbox.css"
+    "dist/angular-bootstrap-lightbox-no-extra.js",
+    "dist/angular-bootstrap-lightbox-no-extra.css"
   ],
   "ignore": [
     "src",

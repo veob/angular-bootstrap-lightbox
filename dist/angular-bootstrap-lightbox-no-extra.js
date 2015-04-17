@@ -254,7 +254,10 @@ angular.module('bootstrapLightbox').provider('Lightbox', function () {
         success();
 
         // blank image
-        Lightbox.imageUrl = '//:0';
+
+        // I commented this line because of flickering - github.com/veob
+        // Lightbox.imageUrl = '//:0';
+
         // use the caption to show the user an error
         Lightbox.imageCaption = 'Failed to load image';
       });
@@ -476,7 +479,9 @@ angular.module('bootstrapLightbox').directive('lightboxSrc', ['$window',
       }, function (src) {
         // blank the image before resizing the element; see
         // http://stackoverflow.com/questions/5775469/whats-the-valid-way-to-include-an-image-with-no-src
-        element[0].src = '//:0';
+
+        // I commented this line because of flickering - github.com/veob
+        //element[0].src = '//:0';
 
         ImageLoader.load(src).then(function (image) {
           // these variables must be set before resize(), as they are used in it
